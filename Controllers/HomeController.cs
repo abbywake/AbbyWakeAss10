@@ -23,6 +23,7 @@ namespace AbbyWakeAss10.Controllers
             context = ctx;
         }
 
+        //this is where I make the page size and do all of the SQL stuff in the nice Index IaActionResult. 
         public IActionResult Index(long? team,string teamName,  int pageNum = 0)
         {
             int pageSize = 5;
@@ -30,12 +31,13 @@ namespace AbbyWakeAss10.Controllers
             return View(new IndexViewModel
             {
                 Bowler = (context.Bowlers
-                .Where(m => m.BowlerId == team || team == null)
+                .Where(m => m.TeamId == team || team == null)
                 .OrderBy(m => m.BowlerFirstName)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize)
                 .ToList()),
 
+                //page numbers, takes all the info and makes it so it will display correctly 
                 PageNumberInfo = new PageNumberInfo
                 {
                     NumItemsPerPage = pageSize,

@@ -51,10 +51,11 @@ namespace AbbyWakeAss10
 
             app.UseAuthorization();
 
+            //endpoints, the ? mark makes it not required so you can click on the teamname and it will show up bolded. 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("teamNamePageNum", 
-                    "TeamName/{team}/{teamName}/{pageNum}",
+                    "TeamName/{team}/{teamName}/{pageNum?}",
                     new { Controller = "Home", Action = "Index" }
                     );
                 endpoints.MapControllerRoute("teamName",

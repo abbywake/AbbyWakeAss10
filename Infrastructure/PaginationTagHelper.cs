@@ -44,9 +44,11 @@ namespace AbbyWakeAss10.Infrastructure
             
             for(int i =1; i <= PageInfo.NumPages; i++)
             {
+                //tag builder helper and giving it the pair 
                 TagBuilder individualTag = new TagBuilder("a");
                 KeyValuePairs["pageNum"] = i;
 
+                //css stuff
                 if (PageClassesEnabled)
                 {
                     //styling when a div is selected
@@ -54,6 +56,7 @@ namespace AbbyWakeAss10.Infrastructure
                     individualTag.AddCssClass(i == PageInfo.CurrentPage ? PageClassSelected : PageClassNormal);
                 }
 
+                //adding to the tag 
                 individualTag.Attributes["href"] = urlHelp.Action("Index", KeyValuePairs);
                 individualTag.InnerHtml.Append(i.ToString());
 

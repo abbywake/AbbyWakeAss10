@@ -19,7 +19,7 @@ namespace AbbyWakeAss10.Components
         public IViewComponentResult Invoke()
         {
             ViewBag.SelectedTeam = RouteData?.Values["TeamName"];
-
+            //returns what it is filtered by when clicked on 
             return View(context.Teams
                 .Distinct()
                 .OrderBy(x => x)

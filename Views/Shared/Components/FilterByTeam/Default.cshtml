@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<Team>
+@using AbbyWakeAss10.Infrastructure 
 
+@* Buttons for the page. Home  *@
 <a class="btn btn-block btn-outline-secondary" asp-action="Index" asp-controller="Home" asp-route-team="">Home</a>
 <br />
-
+@* Buttons for each team *@
 @foreach (var x in Model)
 {
     <a class="btn @(x.TeamName == ViewBag.SelectedTeam ? "btn-primary" : "btn-outline-secondary")"
